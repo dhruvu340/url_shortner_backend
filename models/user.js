@@ -11,7 +11,7 @@ const userschema = new mongoose.Schema(
 
 
 //create a model of user as needed in auth service
-git
+
 
 const User=mongoose.model("User",userschema);
 module.exports = User;
