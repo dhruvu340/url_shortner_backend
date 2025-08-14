@@ -10,5 +10,8 @@ const userschema = new mongoose.Schema(
 );
 
 
+//create a model of user as needed in auth
+git
+
 const User=mongoose.model("User",userschema);
 module.exports = User;
