@@ -1,7 +1,8 @@
 const express=require("express");
-const {handleusersignup}=require("../controllers/user")
+const {handleusersignup,handleuserlogin}=require("../controllers/user")
 const router= express.Router();
 //auth middleware
-router.post('/')
+router.post('/',handleusersignup)
+router.post('/login',handleuserlogin)
 
 module.exports=router

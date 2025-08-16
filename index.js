@@ -9,6 +9,8 @@ require("dotenv").config();
 const port=3000;
 
 const staticrouter=require("./routes/staticrouter")
+const userrouter=require("./routes/user");
+const {passport }= require("./middlewares/auth");
 
 
 
@@ -25,8 +27,12 @@ app.set("views",path.resolve("./views"));
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 
+app.use(passport.initialize());
+
 app.use("/url",urlRoute);
 app.use("/",staticrouter);
+app.use("/user",userrouter)
+
 app.get("/url/:id",async (req,res)=>{
     const shortID=req.params.id;
     const entry=await URL.findOneAndUpdate({shortid:shortID},{
