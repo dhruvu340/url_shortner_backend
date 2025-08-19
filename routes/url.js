@@ -4,5 +4,6 @@ const router=express.Router();
 
 router.post("/",handlegennewshorturl);
 router.get("/analytics/:shortid",handleanalyticsfetch)
+
 module.exports=router
     

@@ -5,6 +5,7 @@ const urlRoute=require("./routes/url");
 const {connecttodb}=require("./connect")
 const {URL}=require("./models/url")
 const path=require("path");
+const mailer=require("./controllers/sendmail")
 require("dotenv").config();
 const port=3000;
 
@@ -28,6 +29,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 
 app.use(passport.initialize());
+app.get("/mail",mailer);
 
 app.use("/url",urlRoute);
 app.use("/",staticrouter);
